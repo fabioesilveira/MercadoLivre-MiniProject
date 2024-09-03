@@ -3,3 +3,25 @@
   justify-content: center;
   
 }
+
+.playstation-pic{
+  width: 650px;
+  height: 400px;
+  margin-left: 31%;
+}
+
+.input-price{
+  display: flex;
+  margin-left: 47%;
+  margin-bottom: 10px;
+}
+
+.navbar{
+  margin-left: -120px;
+}
+
+.h4-title{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
