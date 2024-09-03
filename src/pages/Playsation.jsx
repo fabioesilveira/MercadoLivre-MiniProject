@@ -7,14 +7,15 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { logo } from "../data/data";
+import { logo, PS5 } from "../data/data";
+import CloseButton from 'react-bootstrap/CloseButton';
 
 
 
 
 function Playsation() {
 
-    const [product, setProduct] = useState(null)
+    const [product, setProduct] = useState(null);
     const [count, setCount] = useState(0);
     const [price, setPrice] = useState(0)
 
@@ -31,40 +32,35 @@ function Playsation() {
         fetchApi();
     }, [])
 
-
     const handleIncrement = () => {
-        if (count < 10) { // Condição: só incrementa se count for menor que 10
+        if (count < 10) {
             setCount(count + 1);
-        } else {
-            console.log("O valor máximo foi atingido!");
         }
     };
 
     const handleDecrement = () => {
-        if (count > 0) { // Condição: só decrementar se count for maior que 0
+        if (count > 0) {
             setCount(count - 1);
-        } else {
-            console.log("O valor mínimo foi atingido!");
         }
     };
 
     const handlePrice = () => {
-        if (price < 4.500) {
-            setPrice(count * 450.00);
-        } else {
-            console.log("The maximum price has reached")
-        }
-    }
+        setPrice(count * 450.00);
+    };
+
+    const handleReload = () => {
+        setPrice(0);
+    };
 
     return (
         <>
- 
+
             <Navbar bg="light" data-bs-theme="light">
                 <Container>
-                <img className="navbar" src={logo} alt="Bootstrap" width="85" height="60"></img>
-                    
+                    <img className="navbar" src={logo} alt="Bootstrap" width="85" height="60"></img>
+
                     <Nav className="me-auto">
-                    
+
                         <Nav.Link href="#features">Playstation</Nav.Link>
                         <Nav.Link href="#pricing">Xbox</Nav.Link>
                     </Nav>
@@ -72,14 +68,17 @@ function Playsation() {
             </Navbar>
 
             <h4 className="h4-title">{product === null ? "loading" : product.title}</h4>
-            <img className="playstation-pic" src={product === null ? "loading" : product.thumbnail} alt="" />
-
+            <img className="ps5-pic" src={PS5} alt="" />
             <div className="input-price">
                 <InputGroup>
                     <InputGroup.Text>$</InputGroup.Text>
                     <InputGroup.Text>{price}</InputGroup.Text>
                 </InputGroup>
+
+                <Button onClick={handleReload} className="btn-delete-cart" variant="danger">X</Button>
             </div>
+
+            <CloseButton />
 
             <div className="btn-playstation">
                 <ButtonGroup aria-label="Basic example">

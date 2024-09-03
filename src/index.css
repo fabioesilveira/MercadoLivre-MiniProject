@@ -25,3 +25,15 @@
   justify-content: center;
   margin-top: 20px;
 }
+
+.ps5-pic{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 470px;
+}
+
+.btn-delete-cart{
+  margin-right: 760px;
+}
